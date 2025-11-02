@@ -1,0 +1,22 @@
+## Exemple minimal de whanos.yml
+# Ce fichier montre les clés supportées par `jenkins/scripts/deploy-to-k8s.sh`.
+# Placez ce fichier à la racine d'un dépôt applicatif pour que Whanos le détecte
+
+deployment:
+  # Nombre de replicas souhaités
+  replicas: 2
+
+  # Ressources (optionnel) : limits et requests. Valeurs acceptées (ex): "500m", "256Mi"
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "256Mi"
+    requests:
+      cpu: "200m"
+      memory: "128Mi"
+
+# Ports exposés par le container (optionnel). Le script génère un Service si des ports sont présents.
+ports:
+  - 8080
+
+# Exemple d'utilisation : un dépôt qui expose une application HTTP sur le port 8080.
